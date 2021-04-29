@@ -1,12 +1,19 @@
-﻿using System;
+﻿using NumberToString.App.Logic;
+using NumberToString.Domain.Interfaces;
+using NumberToString.View;
 
-namespace EntryNumberToString
+namespace Start
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Setting
+            ILogicNumberToString logicNumberToString = new LogicNumberToString();
+            IView view = new ViewToConsole();
+
+            ILogicProgram logic = new LogicStart(logicNumberToString, view);
+            logic.Start();
         }
     }
 }
